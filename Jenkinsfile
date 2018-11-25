@@ -1,6 +1,6 @@
-node {
-  stages {
-    stage('checkout')
-    checkout scm
-  }
+pipeline {
+stage('Checkout') {
+    node {
+        checkout scm
+    }
 }
