@@ -6,7 +6,9 @@ pipeline {
         checkout scm
         script {
                 def content = readFile 'gradle.properties'
-                echo "${content}"
+                PROP_KEY=$1
+                PROP_VALUE=`cat $content | grep "$PROP_KEY" | cut -d'=' -f2`
+                echo "${PROP_VALUE}"
                 }
         }
     }
