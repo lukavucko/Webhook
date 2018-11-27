@@ -5,10 +5,10 @@ pipeline {
       steps {
         checkout scm
         script {
-                def content = readFile 'gradle.properties'
-                PROP_KEY=$1
-                PROP_VALUE= cat ${content} | grep ${PROP_KEY} | cut -d'=' -f2
-                echo "${PROP_VALUE}"
+              //  def content = readFile 'gradle.properties'
+              def props = readProperties file:'gradle.properties'
+              def var1 = props['version']
+                echo "${var1}"
                 }
         }
     }
